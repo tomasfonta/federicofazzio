@@ -1,0 +1,384 @@
+/* =============================================
+   CV Federico Luis Fazzio — Main Stylesheet
+   ============================================= */
+
+:root {
+  --primary: #1a3a5c;
+  --accent: #e8a020;
+  --light-bg: #f4f7fb;
+  --white: #ffffff;
+  --text-dark: #1e2a38;
+  --text-mid: #4a5568;
+  --text-light: #718096;
+  --border: #dde3ec;
+  --timeline-line: #c5d0e0;
+  --tag-bg: #e8f0fc;
+  --tag-color: #1a3a5c;
+  --shadow: 0 4px 24px rgba(26, 58, 92, 0.10);
+  --radius: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Page Layout ─────────────────────────── */
+.page {
+  max-width: 1100px;
+  margin: 36px auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+
+/* ── Header (full-width) ──────────────────── */
+.header {
+  grid-column: 1 / -1;
+  background: var(--primary);
+  color: var(--white);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 2px;
+  border: 4px solid rgba(255,255,255,0.25);
+}
+
+.header-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.header-info .title {
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.header-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.contact-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+/* ── Sidebar ──────────────────────────────── */
+.sidebar {
+  background: var(--primary);
+  padding: 36px 28px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.sidebar-section h2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-section h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Skills */
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+.skill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Education */
+.edu-item {
+  margin-bottom: 20px;
+}
+
+.edu-item .edu-date {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.edu-item .edu-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.edu-item .edu-school {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  line-height: 1.3;
+}
+
+/* ── Main Content ─────────────────────────── */
+.main {
+  padding: 40px 40px 40px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Section heading */
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ── Timeline ─────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--timeline-line);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--accent);
+  z-index: 1;
+}
+
+.timeline-item.current .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(232, 160, 32, 0.2);
+}
+
+.job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.job-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  flex-shrink: 0;
+}
+
+.job-badge.leader {
+  background: #fdf3e0;
+  color: #b45309;
+}
+
+.job-company {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.job-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.job-date {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.job-date svg { width: 12px; height: 12px; }
+
+.job-location {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.job-location svg { width: 12px; height: 12px; }
+
+.job-desc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-desc li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 5px;
+  font-size: 0.84rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.job-desc li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+/* ── Print ────────────────────────────────── */
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+  .timeline-item { break-inside: avoid; }
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 780px) {
+  .page {
+    grid-template-columns: 1fr;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .header {
+    padding: 28px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-contacts { justify-content: center; }
+
+  .sidebar { padding: 28px 20px; }
+
+  .main { padding: 28px 20px; }
+
+  .job-header { flex-direction: column; }
+}

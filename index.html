@@ -5,15 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Federico Luis Fazzio — Curriculum Vitae</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+
+<button onclick="generarPDF()" class="download-btn" title="Descargar CV en PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+  Descargar CV
+</button>
+
+<script>
+// Esperar a que la librería esté cargada
+window.addEventListener('DOMContentLoaded', function() {
+  console.log('Página cargada');
+  
+  // Asegurar que todas las imágenes estén cargadas
+  const imagenes = document.querySelectorAll('img');
+  imagenes.forEach(img => {
+    if (!img.complete) {
+      img.addEventListener('load', function() {
+        console.log('Imagen cargada:', img.src);
+      });
+    }
+  });
+});
+
+function generarPDF() {
+  // Ocultar el botón antes de imprimir
+  const boton = document.querySelector('.download-btn');
+  boton.style.display = 'none';
+  
+  // Usar la función de impresión del navegador que genera PDF
+  window.print();
+  
+  // Mostrar el botón después de cerrar el diálogo
+  setTimeout(() => {
+    boton.style.display = 'flex';
+  }, 100);
+}
+</script>
 
 <div class="page">
 
   <!-- ══════════════════ HEADER ══════════════════ -->
   <header class="header">
     <div class="header-avatar">
-      <img src="https://github.com/user-attachments/assets/6c0753ca-7548-465a-8bcc-5b22def0e69a" alt="Federico Luis Fazzio" />
+      <img src="images/foto.jpeg" alt="Foto de Federico Luis Fazzio" />
     </div>
     <div class="header-info">
       <h1>Federico Luis Fazzio</h1>
@@ -44,17 +85,46 @@
   <!-- ══════════════════ SIDEBAR ══════════════════ -->
   <aside class="sidebar">
 
-    <!-- APTITUDES -->
+    <!-- PROPUESTA DE VALOR -->
     <div class="sidebar-section">
-      <h2>Aptitudes</h2>
+      <h2>Propuesta de Valor</h2>
+      <p class="sidebar-text">
+        Soy Team Leader especializado en venta consultiva y servicio al cliente. Me enfoco en ordenar la
+        operación, clarificar objetivos y convertir el trato cercano en resultados sostenibles.
+      </p>
+    </div>
 
-      <div class="skill-item"><span class="skill-dot"></span>Liderazgo de equipo y gestión de personas</div>
-      <div class="skill-item"><span class="skill-dot"></span>Formación, mentoring y coaching</div>
-      <div class="skill-item"><span class="skill-dot"></span>Excelente atención y orientación al cliente</div>
-      <div class="skill-item"><span class="skill-dot"></span>Escucha activa, paciencia y tacto</div>
-      <div class="skill-item"><span class="skill-dot"></span>Actitud proactiva y resolución de problemas</div>
-      <div class="skill-item"><span class="skill-dot"></span>Trabajo en equipo y compañerismo</div>
-      <div class="skill-item"><span class="skill-dot"></span>Análisis de KPIs y gestión comercial</div>
+    <!-- EXPERTISE EN DATOS -->
+    <div class="sidebar-section">
+  <h2>Expertise en Datos</h2>
+      <ul class="sidebar-list">
+        <li>Lectura de indicadores de venta y servicio para tomar decisiones diarias.</li>
+        <li>Uso del feedback de clientes para ajustar guiones, procesos y postventa.</li>
+        <li>Simplificación de pasos y tareas para ganar tiempo útil de atención.</li>
+      </ul>
+    </div>
+
+    <!-- LIDERAZGO Y EQUIPOS -->
+    <div class="sidebar-section">
+  <h2>Liderazgo y Equipos</h2>
+      <ul class="sidebar-list">
+        <li>Liderazgo situacional, cercano y orientado a objetivos claros.</li>
+        <li>Motivación a través de feedback concreto y reconocimiento justo.</li>
+        <li>Formación práctica en venta consultiva y manejo de objeciones.</li>
+      </ul>
+    </div>
+
+  <!-- ¿POR QUÉ FEDERICO? -->
+    <div class="sidebar-section sidebar-highlight">
+      <h2>¿Por qué Federico?</h2>
+      <p class="sidebar-text">
+        Si diriges un equipo comercial y buscas orden y resultados sostenibles, aporto:
+      </p>
+      <ul class="sidebar-list">
+        <li>Visión práctica del negocio y del día a día en el punto de venta.</li>
+  <li>Liderazgo humano que retiene talento y reduce la rotación típica del retail masivo.</li>
+        <li>Cultura de indicadores y mejora continua sin perder la cercanía con el cliente.</li>
+      </ul>
     </div>
 
     <!-- FORMACIÓN -->
@@ -114,8 +184,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
         </svg>
-        Historial Laboral
+        Trayectoria
       </h2>
+
+      <p class="intro-text">
+        A lo largo de más de 15 años en retail y servicios, he combinado atención directa al cliente,
+        gestión de equipos y optimización de procesos. Estos son algunos hitos que explican cómo puedo
+        aportar valor a organizaciones que quieren profesionalizar su área comercial y de atención.
+      </p>
 
       <div class="timeline">
 
@@ -123,10 +199,13 @@
         <div class="timeline-item current">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Asesor Comercial de Ventas</span>
+            <span class="job-title">Coordinador de Equipo Comercial</span>
             <span class="job-badge">Actual</span>
           </div>
-          <div class="job-company">Whats Up! — Málaga</div>
+          <div class="job-company">
+            <img src="images/whatsuplogo.jpeg" alt="Whats Up!" class="company-logo" onerror="this.style.display='none'" />
+            Whats Up! — Málaga
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -134,9 +213,10 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Asesoramiento a clientes con trato cercano y personalizado.</li>
-            <li>Cierre de ventas, propuestas comerciales y seguimiento posventa.</li>
-            <li>Comunicación presencial, telefónica y digital.</li>
+            <li>Coordinar el equipo de ventas para garantizar una experiencia de cliente excelente en todos los puntos de contacto.</li>
+            <li>Formar a nuevos integrantes en técnicas de venta consultiva y trato personalizado al cliente.</li>
+            <li>Implementar procesos de seguimiento posventa que aumentan la repetición de compra y las recomendaciones.</li>
+            <li>Alinear objetivos del equipo con las metas comerciales del punto de venta.</li>
           </ul>
         </div>
 
@@ -144,9 +224,12 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Comercial B2C — Logística y Hortalizas</span>
+            <span class="job-title">Responsable de Operaciones Comerciales</span>
           </div>
-          <div class="job-company">Ibosque Direct Sourcing — Málaga</div>
+          <div class="job-company">
+            <img src="images/ibosquelogo.jpeg" alt="Ibosque" class="company-logo" onerror="this.style.display='none'" />
+            Ibosque Direct Sourcing — Málaga
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -154,8 +237,9 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Comercialización y logística de hortalizas a granel.</li>
-            <li>Gestión de cartera de clientes y proveedores.</li>
+            <li>Supervisar el equipo de logística y atención comercial para equilibrar servicio al cliente y rentabilidad.</li>
+            <li>Coordinar entre proveedores y equipo interno para reducir errores en pedidos y optimizar tiempos de entrega.</li>
+            <li>Capacitar al equipo en procesos de calidad y gestión de relaciones comerciales de largo plazo.</li>
           </ul>
         </div>
 
@@ -163,9 +247,12 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Comercial de Ventas</span>
+            <span class="job-title">Responsable de Punto de Venta</span>
           </div>
-          <div class="job-company">Motorola — Stand El Corte Inglés, Málaga</div>
+          <div class="job-company">
+            <img src="images/motorollalogo.png" alt="Motorola" class="company-logo" onerror="this.style.display='none'" />
+            Motorola — Stand El Corte Inglés, Málaga
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -173,8 +260,9 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Asesoramiento y venta de dispositivos móviles con atención personalizada.</li>
-            <li>Seguimiento posventa, gestión de objeciones y cumplimiento de cuotas.</li>
+            <li>Liderar el equipo del stand para cumplir y superar objetivos de ventas en un entorno de alta exigencia.</li>
+            <li>Entrenar al equipo en explicación de productos tecnológicos complejos con lenguaje claro y centrado en beneficios.</li>
+            <li>Establecer procesos de acompañamiento al cliente desde la consulta hasta la configuración del dispositivo.</li>
           </ul>
         </div>
 
@@ -182,9 +270,12 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Comercial de Ventas</span>
+            <span class="job-title">Coordinador Comercial de Stand</span>
           </div>
-          <div class="job-company">Google — Stand El Corte Inglés, Málaga</div>
+          <div class="job-company">
+            <img src="images/googlelogo.webp" alt="Google" class="company-logo" onerror="this.style.display='none'" />
+            Google — Stand El Corte Inglés, Málaga
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -192,8 +283,8 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Venta consultiva de productos y servicios Google.</li>
-            <li>Orientación al cliente, seguimiento posventa y propuestas comerciales.</li>
+            <li>Coordinar y formar al equipo en venta consultiva de productos y servicios tecnológicos de alto valor.</li>
+            <li>Establecer guiones comerciales para gestionar objeciones y traducir necesidades del cliente en soluciones concretas.</li>
           </ul>
         </div>
 
@@ -204,7 +295,10 @@
             <span class="job-title">Supervisor Regional de Ventas</span>
             <span class="job-badge leader">Liderazgo</span>
           </div>
-          <div class="job-company">Telefónica — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/telefonicalogo.jpg" alt="Telefónica" class="company-logo" onerror="this.style.display='none'" />
+            Telefónica — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -212,9 +306,10 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Supervisión de equipo: asignación de tareas, formación y coaching.</li>
-            <li>Implementación de KPIs, análisis de indicadores y reportes de ventas.</li>
-            <li>Gestión de objetivos y resolución de quejas de clientes.</li>
+            <li>Coordinar equipos de venta en varios puntos de atención, alineando objetivos y estándares.</li>
+            <li>Formar y acompañar a los vendedores para mejorar sus resultados y su experiencia con el cliente.</li>
+            <li>Analizar indicadores comerciales para ajustar acciones y reportar avances a la dirección.</li>
+            <li>Resolver incidencias complejas de clientes, protegiendo la relación y la imagen de la marca.</li>
           </ul>
         </div>
 
@@ -225,7 +320,10 @@
             <span class="job-title">Team Leader</span>
             <span class="job-badge leader">Liderazgo</span>
           </div>
-          <div class="job-company">Movistar — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/movitarlogo.webp" alt="Movistar" class="company-logo" onerror="this.style.display='none'" />
+            Movistar — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -233,9 +331,10 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Liderazgo de equipo: coordinación, capacitación y desarrollo del personal.</li>
-            <li>KPIs, cumplimiento de objetivos y reportes mensuales a dirección.</li>
-            <li>Formación de nuevos integrantes y gestión operativa de ventas.</li>
+            <li>Dirigir el equipo de ventas, marcando prioridades claras y haciendo seguimiento de objetivos.</li>
+            <li>Detectar el potencial de cada persona para asignar tareas y planes de desarrollo acordes.</li>
+            <li>Revisar resultados periódicamente y plantear mejoras de proceso junto a la dirección.</li>
+            <li>Acompañar en la venta para reforzar argumentarios y generar confianza en el equipo.</li>
           </ul>
         </div>
 
@@ -243,9 +342,12 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Atención al Cliente y Comercial de Telefonía</span>
+            <span class="job-title">Asesor Comercial</span>
           </div>
-          <div class="job-company">Movistar — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/movitarlogo.webp" alt="Movistar" class="company-logo" onerror="this.style.display='none'" />
+            Movistar — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -253,18 +355,22 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Venta de servicios de telefonía, atención al cliente y resolución de incidencias.</li>
-            <li>CRM, gestión de objeciones y cumplimiento de objetivos de ventas.</li>
+            <li>Brindar atención personalizada a clientes resolviendo consultas técnicas y comerciales de productos y servicios.</li>
+            <li>Realizar venta consultiva identificando necesidades y ofreciendo soluciones de telecomunicaciones a medida.</li>
+            <li>Cumplir objetivos de venta de servicios de valor añadido mediante seguimiento proactivo de oportunidades.</li>
           </ul>
         </div>
 
-        <!-- 8 — FRAVEGASA -->
+        <!-- 8 — FRAVEGA -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Comercial y Atención al Cliente</span>
+            <span class="job-title">Encargado de Sector Comercial</span>
           </div>
-          <div class="job-company">FRAVEGASA — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/logo-fravega.png" alt="FRAVEGA" class="company-logo" onerror="this.style.display='none'" />
+            FRAVEGA — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -272,18 +378,21 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Venta de artículos para el hogar, asesoramiento técnico y resolución de incidencias.</li>
-            <li>Gestión de cartera de clientes y cumplimiento de objetivos comerciales.</li>
+            <li>Dirigir el equipo de ventas del sector de artículos para el hogar, alcanzando de forma consistente los objetivos mensuales.</li>
+            <li>Entrenar al equipo en asesoramiento técnico previo a la compra, reduciendo reclamaciones y mejorando la experiencia del cliente.</li>
           </ul>
         </div>
 
-        <!-- 9 — MUSIMUNDOSA -->
+        <!-- 9 — MUSIMUNDO -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Vendedor</span>
+            <span class="job-title">Referente de Ventas y Formación</span>
           </div>
-          <div class="job-company">MUSIMUNDO SA — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/logo-musimundo.png" alt="MUSIMUNDO" class="company-logo" onerror="this.style.display='none'" />
+            MUSIMUNDO — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -291,8 +400,8 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Venta y asesoramiento de artículos para el hogar.</li>
-            <li>Atención al cliente, gestión de objeciones y cumplimiento de objetivos.</li>
+            <li>Guiar a nuevos vendedores en técnicas de trato cercano y seguimiento para consolidar carteras de clientes recurrentes.</li>
+            <li>Coordinar con el equipo las campañas de promoción en tienda para aumentar el tráfico y las ventas.</li>
           </ul>
         </div>
 
@@ -300,9 +409,12 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="job-header">
-            <span class="job-title">Encargado de Salón y Caja</span>
+            <span class="job-title">Encargado de Salón y Equipos</span>
           </div>
-          <div class="job-company">Von der Thusen Deportes — Santa Fe, Argentina</div>
+          <div class="job-company">
+            <img src="images/logo-vonderthusen.png" alt="Vonderthusen" class="company-logo" onerror="this.style.display='none'" />
+            Vonderthusen Deportes — Santa Fe, Argentina
+          </div>
           <div class="job-meta">
             <span class="job-date">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -310,8 +422,8 @@
             </span>
           </div>
           <ul class="job-desc">
-            <li>Encargado de salón, caja y equipo de trabajo; apertura y cierre del local.</li>
-            <li>Control de stock, administración de créditos y venta de indumentaria deportiva.</li>
+            <li>Liderar el equipo de salón, caja y atención al cliente, garantizando aperturas y cierres sin incidencias operativas.</li>
+            <li>Capacitar al equipo en exhibición de productos y técnicas de venta para mejorar la rotación de stock.</li>
           </ul>
         </div>
 
